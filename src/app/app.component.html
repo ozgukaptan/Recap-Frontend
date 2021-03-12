@@ -1,13 +1,18 @@
-<!-- welcome to {{title}}
-{{user}}
-<ul>
-  <li>laptop</li> 
-</ul> -->
-<app-navi></app-navi>
-<app-brand></app-brand>
-<app-car></app-car>
-<app-color></app-color>
-<app-customer></app-customer>
-<app-rental></app-rental>
+<div class="container">
+  <app-navi></app-navi>
+  <div class="row">
+    <div class="col-md-3">
+      <app-brand></app-brand>
+    </div>
+    <div class="col-md-9">
+      <app-car></app-car>
+      <app-color></app-color>
+      <app-customer></app-customer>
+      <app-rental></app-rental>
+    </div>
+    
+  </div>
+  
+  <router-outlet></router-outlet>
+</div>
 
-<router-outlet></router-outlet>
