@@ -1,15 +1,25 @@
-<!-- <table class="table">
+<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+        <tr>
+            <th>Marka Id</th>
+            <th>Marka ismi</th>
+            <th>Marka Açıklama</th>
+        </tr>
+    </thead>
     <tr *ngFor="let brand of brands">
-        <td>{{brand.Id}}</td>
-        <td>{{brand.Name}}</td>
-        <td>{{brand.Description}}</td>
+        <td>{{brand.id}}</td>
+        <td>{{brand.name}}</td>
+        <td>{{brand.description}}</td>
     </tr>
-</table> -->
+</table>
 
-<ul class="list-group">
+<!-- <ul class="list-group">
     <li class="list-group-item">An item</li>
     <li class="list-group-item">A second item</li>
     <li class="list-group-item">A third item</li>
     <li class="list-group-item">A fourth item</li>
     <li class="list-group-item">And a fifth one</li>
-  </ul>
+  </ul> -->
