@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
-import {HttpClient} from '@angular/common/http'
-import { BrandResponseModel } from 'src/app/models/brandResponseModel';
+import { HttpClient } from '@angular/common/http'
 import { BrandService } from 'src/app/services/brand.service';
 
 
@@ -12,20 +11,42 @@ import { BrandService } from 'src/app/services/brand.service';
 })
 export class BrandComponent implements OnInit {
 
-  brands:Brand[] = [];
+  brands: Brand[] = [];
+  currentBrand: Brand;
   dataLoaded = false;
-  
-  constructor(private brandService:BrandService) { }
+
+  constructor(private brandService: BrandService) { }
 
   ngOnInit(): void {
     this.getBrands();
   }
 
-  getBrands(){
+  getBrands() {
     this.brandService.getBrands()
-    .subscribe(Response=>{
-      this.brands = Response.data
-      this.dataLoaded= true});
+      .subscribe(Response => {
+        this.brands = Response.data,
+          this.dataLoaded = true
+      });
+  }
+
+  setCurrentBrand(brand: Brand) {
+    this.currentBrand = brand;
+  }
+
+  getCurrentBrandClass(brand: Brand) {
+    if (brand == this.currentBrand) {
+      return "list-group-item active"
+    } else {
+      return "list-group-item"
+    }
+  }
+
+  getAllBrandClass() {
+    if (!this.currentBrand) {
+      return "list-group-item active"
+    } else {
+      return "list-group-item"
+    }
   }
 
 }
