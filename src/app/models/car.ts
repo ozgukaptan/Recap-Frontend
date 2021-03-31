@@ -9,5 +9,5 @@ export interface Car  {
     modelYear : string;
     dealyPrice : number;
     description : string;
-    carImages : CarImage[]
+    carImages : CarImage[];
 }
